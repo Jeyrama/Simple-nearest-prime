@@ -8,3 +8,28 @@ solve(125) = 127
 
 
 // Solution
+
+function solve (n) {
+  if (isPrime(n)) return n;
+
+  for (let i = 1; i < n; i++) {
+      if (isPrime(n - i)) return n - i;
+      if (isPrime(n + i)) return n + i;
+  }
+}
+
+function isPrime(n) {
+  if (n == 2 || n == 3) return true;
+  if (n % 2 == 0 || n % 3 == 0) return false;
+
+  let i = 5, w = 2;
+
+  while (i * i <= n) {
+      if (n % i == 0) {
+          return false;
+      }
+      i += w;
+      w = 6 - w;
+  }
+  return true;
+}
