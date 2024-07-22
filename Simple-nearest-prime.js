@@ -35,3 +35,20 @@ function isPrime(n) {
 }
 
 // or
+
+function solve(n){
+  function isPrime(number) {
+  let start = 2;
+  while (start <= Math.sqrt(number)) {
+      if (number % start++ < 1) return false;
+  }
+  return number > 1;
+  }
+
+for(let i =0;i<100;i++){
+  let lowNumb = n-i
+  let highNumb = n+i
+  if(isPrime(lowNumb)) return lowNumb
+  else if (isPrime(highNumb)) return highNumb
+  }
+}
